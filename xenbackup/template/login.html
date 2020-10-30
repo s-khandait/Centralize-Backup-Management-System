@@ -1,0 +1,122 @@
+
+{% load static %}
+<! DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>XenBackup - Xenstack Backup Management System</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="{% static 'assets/img/favicon.ico' %}" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="{% static 'https://use.fontawesome.com/releases/v5.13.0/js/all.js' %}" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="{% static 'https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700' %}" rel="stylesheet" />
+        <link href="{% static 'https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic' %}" rel="stylesheet" type="text/css" />
+        <!-- Third party plugin CSS-->
+        <link href="{% static 'https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css' %}" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+    </head>
+    <style>
+        #loginbtn{
+          padding: 13px 20px;
+    letter-spacing: 0.5px;
+    background-color: #f4623a;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 0px;
+        }
+      </style>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand js-scroll-trigger" href="#page-top">XenBackup</a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto my-2 my-lg-0">
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Services</a></li>
+                        {% if user.is_authenticated %}
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="accounts/backup">Backup</a></li>
+                        {% else %}
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="accounts/login">Backup</a></li>
+                        {% endif %}
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
+                        {% if user.is_authenticated %}
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="accounts/logout">Logout</a></li>
+                        <li><a href="/">Hello, {{user.first_name}}</a></li>
+
+                        {% else %}
+
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="accounts/login">Login</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="accounts/register">Register</a></li>
+                        {% endif %}
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+         <!-- Masthead-->
+        <header class="masthead">
+            <div class="container h-100">
+                <div>
+                    <form style="margin-right: 20%;margin-left: 20%;margin-top: 100px;" action="login" method="post">
+                          <fieldset>
+                            <legend style="font-size: 50px;">Login</legend>
+                            <div style="margin-left: 3%;">
+                                {% csrf_token %}
+                                <table style="margin: 10px; width: 100%">
+                                    <tbody>
+
+                                        <tr>
+                                            <td  style="padding: 13px;"><label>Username</label></td>
+                                            <td style="padding: 13px;">
+                                                 <!-- <input type="text" name="username" placeholder="username"> -->
+                                                 <input name="username" type="text" class="form-control" id="name" placeholder="username" required>
+
+                                               </td>
+                                        </tr>
+
+                                        {% for message in messages %}
+                                                <h6 style="color: #F4623A;"> {{message}}</h6>
+                                            {% endfor %}
+                                        <tr>
+                                            <td  style="padding: 13px;"><label>Password</label></td>
+                                            <!-- <td style="padding: 13px;"> <input type="password" name="password" placeholder="Password"><br></td> -->
+                                            <td style="padding: 13px;">
+
+                                                <input name="password" type="password" class="form-control" id="name" placeholder="Password" required>
+
+                                               </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td  style="padding: 13px;">
+
+                                                      <button type="submit" id="loginbtn" class="btn">login</button>
+
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+
+                            </div>
+                          </fieldset>
+                    </form>
+
+                </div>
+
+            </div>
+        </header>
+                
+            </body>
+        </html>

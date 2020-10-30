@@ -1,0 +1,44 @@
+
+{% load static %}
+<! DOCTYPE html>
+
+<html lang="en">
+    <head>
+
+    </head>>
+    <form>
+    <form class="masthead">
+        <br class="container h-100">
+        <div>
+            <center><h2>Centralized Backup Management System</h2>></center>
+        </div>
+        <b>Choose which Database to Backup :</b>
+
+        <select>
+            <option value="Choose Database">Choose Database</option>
+            <option value="mongodb">MongoDB</option>
+            <option value="mysql">MySQL</option>
+            <option value="postgresql">PostgreSQL</option>
+            <option value="cassandra">Cassandra</option>
+            <option value="sqlite">Sqlite</option>
+         </select>
+
+         <br><br>
+         <b>From which machine you want to take Backup :</b>
+         <select>
+             <option value="Choose Machine">Choose Machine</option>
+             <option value="IP address">IP address</option>
+             <option value="hostname">Hostname</option>
+        </select>
+    </br></br>
+        <br><br>
+        <b>Choose Backup Form :</b>
+        <select>
+            <option value="none">None</option>
+            <option value="local host">Local Host</option>
+            <option value="remote access">Remote Access</option>
+        </select>
+    </br></br>
+    </form>
+
+    </header>
